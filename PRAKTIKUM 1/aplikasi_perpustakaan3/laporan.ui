@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LaporanWindow</class>
+ <widget class="QMainWindow" name="LaporanWindow">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>775</width><height>515</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>Perpustakaan - Laporan Statistik</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+QMainWindow { background-color: #F8F9FA; }
+QLabel { font-size: 12px; color: #333333; }
+QLabel#lblTitle {
+ font-size: 18px; font-weight: bold; color: #2C3E50;
+}
+QPushButton {
+ background-color: #34495E; color: white;
+ border: none; border-radius: 4px;
+ padding: 8px; font-weight: bold;
+}
+QPushButton:hover { background-color: #415B76; }
+QPushButton#btnRefresh { background-color: #2980B9; }
+QPushButton#btnRefresh:hover { background-color: #3498DB; }
+QTableWidget {
+ background-color: white; border: 1px solid #BDC3C7;
+ gridline-color: #ECF0F1;
+}
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+    <property name="leftMargin"><number>13</number></property>
+    <property name="topMargin"><number>12</number></property>
+    <property name="rightMargin"><number>13</number></property>
+    <property name="bottomMargin"><number>10</number></property>
+    <property name="spacing"><number>8</number></property>
+    <item>
+     <widget class="QLabel" name="lblTitle">
+      <property name="text">
+       <string>▣ LAPORAN &amp; STATISTIK PERPUSTAKAAN</string>
+      </property>
+      <property name="alignment"><set>Qt::AlignCenter</set></property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="contentLayout">
+      <property name="spacing"><number>8</number></property>
+      <item>
+       <layout class="QVBoxLayout" name="summaryLayout">
+        <property name="spacing"><number>8</number></property>
+        <item>
+         <widget class="QLabel" name="labelTotalJudul">
+          <property name="text"><string>Jumlah Judul Buku:</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="valTotalJudul">
+          <property name="text"><string>0</string></property>
+          <property name="styleSheet">
+           <string>font-size:14px;font-weight:bold;color:#2C3E50;background:white;border:1px solid #BDC3C7;border-radius:4px;padding:7px;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelTotalStok">
+          <property name="text"><string>Total Eksemplar:</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="valTotalStok">
+          <property name="text"><string>0</string></property>
+          <property name="styleSheet">
+           <string>font-size:14px;font-weight:bold;color:#2C3E50;background:white;border:1px solid #BDC3C7;border-radius:4px;padding:7px;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelAktif">
+          <property name="text"><string>Peminjaman Aktif:</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="valAktif">
+          <property name="text"><string>0</string></property>
+          <property name="styleSheet">
+           <string>font-size:14px;font-weight:bold;color:#2C3E50;background:white;border:1px solid #BDC3C7;border-radius:4px;padding:7px;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelKembali">
+          <property name="text"><string>Total Pengembalian:</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="valKembali">
+          <property name="text"><string>0</string></property>
+          <property name="styleSheet">
+           <string>font-size:14px;font-weight:bold;color:#2C3E50;background:white;border:1px solid #BDC3C7;border-radius:4px;padding:7px;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="labelDenda">
+          <property name="text"><string>Total Denda:</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="valDenda">
+          <property name="text"><string>Rp 0</string></property>
+          <property name="styleSheet">
+           <string>font-size:14px;font-weight:bold;color:#2C3E50;background:white;border:1px solid #BDC3C7;border-radius:4px;padding:7px;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnRefresh">
+          <property name="text"><string>Perbarui Statistik</string></property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="summarySpacer">
+          <property name="orientation"><enum>Qt::Vertical</enum></property>
+          <property name="sizeHint" stdset="0">
+           <size><width>20</width><height>35</height></size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="tableLayout">
+        <item>
+         <widget class="QLabel" name="lblTableTitle">
+          <property name="text">
+           <string>BUKU PALING SERING DIPINJAM</string>
+          </property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet">
+           <string>font-size:13px;font-weight:bold;color:#2C3E50;</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableStatistik">
+          <property name="columnCount"><number>4</number></property>
+          <property name="rowCount"><number>0</number></property>
+          <column><property name="text"><string>ID Buku</string></property></column>
+          <column><property name="text"><string>Judul</string></property></column>
+          <column><property name="text"><string>Pengarang</string></property></column>
+          <column><property name="text"><string>Dipinjam</string></property></column>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btnKembali">
+      <property name="text">
+       <string>▣ Kembali ke Menu Utama</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <resources/>
+  <connections/>
+ </widget>
+</ui>
